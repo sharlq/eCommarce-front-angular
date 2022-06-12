@@ -1,0 +1,80 @@
+<!-- <p>shop works!</p>
+<div *ngFor="let product of products">
+  <p>{{ product.name }}</p>
+</div> -->
+<div
+  class="container"
+  *ngIf="products.length > 0 && types.length > 0 && brands.length > 0"
+>
+  <div class="row">
+    <section class="col-3">
+      <h5 class="text-dark ml-3 mt-3">Sort</h5>
+
+      <select
+        class="form-select form-select-sm mb-3"
+        aria-label=".form-select-sm example"
+        (change)="onSortSelected($event.target?.value)"
+      >
+        <option value="1" selected>Alphabetical</option>
+        <option value="2">price high to low</option>
+        <option value="3">price low to high</option>
+      </select>
+
+      <h5 class="text-dark ml-3 mt-3">Brands</h5>
+      <ul class="list-group">
+        <li
+          class="list-group-item text-dark"
+          *ngFor="let brand of brands"
+          (click)="onBrandSelected(brand.id)"
+          [value]="brand.id"
+          [ngClass]="brandId === brand.id ? 'bg-warning' : ''"
+        >
+          {{ brand.name }}
+        </li>
+      </ul>
+
+      <h5 class="text-dark ml-3 mt-3">Types</h5>
+
+      <ul class="list-group">
+        <li
+          class="list-group-item text-dark"
+          *ngFor="let type of types"
+          (click)="onTypeSelected(type.id)"
+          [ngClass]="typeId === type.id ? 'bg-warning' : ''"
+        >
+          {{ type.name }}
+        </li>
+      </ul>
+    </section>
+    <section class="col-9">
+      <div class="d-flex justify-content-between align-items-center pb-2">
+        <app-search-header [pagination]="pagination"></app-search-header>
+        <div class="form-inline mt-2">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            [(ngModel)]="search"
+            (keyup)="onSearchTimer()"
+            (keydown)="onSearchClear()"
+          />
+        </div>
+      </div>
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <app-shop-item
+              *ngFor="let product of products"
+              [product]="product"
+            ></app-shop-item>
+          </div>
+        </div>
+      </div>
+      <app-pagination
+        [pagination]="pagination"
+        (pageChange)="onPageChange($event)"
+      ></app-pagination>
+    </section>
+  </div>
+</div>

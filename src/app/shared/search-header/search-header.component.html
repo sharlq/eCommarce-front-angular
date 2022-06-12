@@ -1,0 +1,19 @@
+<header>
+  <span *ngIf="pagination.total > 0">
+    showing
+    <strong>
+      {{ pagination.offset + 1 }} -
+      {{
+        pagination.total > pagination.offset + pagination.itemsNumber
+          ? pagination.offset + pagination.itemsNumber
+          : pagination.total
+      }}
+    </strong>
+    of <strong>{{ pagination.total }}</strong> Results
+  </span>
+  <span *ngIf="pagination.total === 0">
+    there is
+    <strong> 0 </strong>
+    results found
+  </span>
+</header>
