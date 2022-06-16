@@ -8,5 +8,6 @@ const routes: Routes = [{ path: '', component: BasketComponent }];
 @NgModule({
   declarations: [],
   imports: [CommonModule, RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
 export class BasketRoutingModule {}

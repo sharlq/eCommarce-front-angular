@@ -1,0 +1,21 @@
+.form-signin {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  row-gap: 20px;
+  .formBody {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .form-floating {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .form-control {
+      width: 100%;
+    }
+  }
+}

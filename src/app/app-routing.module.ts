@@ -19,6 +19,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./basket/basket.module').then((m) => m.BasketModule),
   },
+  {
+    path: 'account',
+    loadChildren: () =>
+      import('./accout/account.module').then((m) => m.AccountModule),
+  },
   { path: 'test-errors', component: TestErrorsComponent },
   { path: 'not-found', component: NotFoundErrorComponent },
   { path: 'server-error', component: ServerErrorComponent },
@@ -26,7 +31,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), CommonModule],
+  imports: [CommonModule, RouterModule.forRoot(routes), CommonModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

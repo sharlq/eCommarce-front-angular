@@ -61,10 +61,49 @@
         </div>
       </div>
 
-      <div class="text-end">
-        <button type="button" class="btn btn-outline-light me-2">Login</button>
-        <button type="button" class="btn btn-warning">Sign-up</button>
+      <div class="text-end" *ngIf="!user$">
+        <a routerLink="/account/login" class="btn btn-outline-light me-2"
+          >Login</a
+        >
+        <a routerLink="/account/register" class="btn btn-warning">Sign-up</a>
       </div>
+
+      <ng-container *ngIf="user$">
+        <div class="user ms-2 btn-group" dropdown>
+          <h6
+            class="text-light d-flex"
+            style="cursor: pointer; column-gap: 0.5em; margin-bottom: 0"
+            dropdownToggle
+          >
+            welcome <strong> {{ user$?.name }}</strong>
+            <i class="fa fa-caret-down ms-2" style="font-size: 1.5em"></i>
+          </h6>
+          <div
+            id="dropdown-basic"
+            *dropdownMenu
+            class="dropdown-menu dropdown-menu-right"
+            role="menu"
+            aria-labelledby="button-basic"
+          >
+            <a class="dropdown-item d-flex align-items-center py-2" href="#">
+              <i class="fa fa-shopping-cart me-3"></i> View Basket
+            </a>
+
+            <a class="dropdown-item d-flex align-items-center py-2" href="#">
+              <i class="fa fa-history me-3"></i>View Orders
+            </a>
+
+            <div class="dropdown-divider"></div>
+
+            <a
+              class="dropdown-item d-flex align-items-center py-2"
+              (click)="onLogout()"
+            >
+              <i class="fa fa-sign-out me-3"></i>log out
+            </a>
+          </div>
+        </div>
+      </ng-container>
     </div>
   </div>
 </header>

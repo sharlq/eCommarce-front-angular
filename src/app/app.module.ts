@@ -18,6 +18,8 @@ import { ServerErrorComponent } from './server-error/server-error.component';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { ShopComponent } from './shop/shop.component';
 import { BasketService } from './basket/basket.service';
+import { AuthServiceService } from './accout/auth-service.service';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,6 @@ import { BasketService } from './basket/basket.service';
     FontAwesomeModule,
     HttpClientModule,
     CoreModule,
-    PaginationModule.forRoot(),
     HomeModule,
     RouterModule,
   ],
@@ -44,6 +45,7 @@ import { BasketService } from './basket/basket.service';
       multi: true,
     },
     BasketService,
+    AuthServiceService,
   ],
   bootstrap: [AppComponent],
 })
