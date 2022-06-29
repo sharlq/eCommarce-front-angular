@@ -20,6 +20,7 @@ import { ShopComponent } from './shop/shop.component';
 import { BasketService } from './basket/basket.service';
 import { AuthServiceService } from './accout/auth-service.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     CoreModule,
     HomeModule,
     RouterModule,
+    NgbModule,
   ],
   providers: [
     {

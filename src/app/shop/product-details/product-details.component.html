@@ -1,25 +1,29 @@
-<div class="row" *ngIf="product != undefined">
-  <div class="col-6">
-    <img
-      src="{{ baseUrl + product?.pictureUrl }}"
-      alt="{{ product?.name }}"
-      class="img-fluid w-100"
-    />
-  </div>
-  <div class="col-6">
-    <h3>{{ product?.name }}</h3>
-    <p>{{ product?.price }}</p>
-    <div class="d-flex justify-content-start align-items-center">
-      <i
-        class="fa fa-minus-circle text-warning mr-2"
-        style="cursor: pointer; font-size: 2em"
-      ></i>
-      <span class="text-dark ml-3 mr-3">1</span>
-      <i
-        class="fa fa-plus-circle text-warning ml-2"
-        style="cursor: pointer; font-size: 2em"
-      ></i>
-      <button class="btn btn-warning btn-sm ml-2">Add to cart</button>
+<div class="productDetails" *ngIf="product != undefined">
+  <div class="firstSection">
+    <div class="imageContainer">
+      <img
+        src="{{ baseUrl + product?.pictureUrl }}"
+        alt="{{ product?.name }}"
+        class="img-fluid w-100"
+      />
+    </div>
+    <div class="mainDetails">
+      <h3>{{ product?.name }}</h3>
+      <p>{{ product?.price | currency }}</p>
+      <div class="d-flex controls">
+        <div class="quantity">
+          <i
+            class="fa fa-minus-circle text-warning mr-2 icon"
+            style="cursor: pointer; font-size: 2em"
+          ></i>
+          <h4 class="text-dark ml-3 mr-3">1</h4>
+          <i
+            class="fa fa-plus-circle text-warning ml-2 icon"
+            style="cursor: pointer; font-size: 2em"
+          ></i>
+        </div>
+        <button class="btn btn-warning btn-sm ml-2">Add to cart</button>
+      </div>
     </div>
   </div>
   <div class="row mt-5">

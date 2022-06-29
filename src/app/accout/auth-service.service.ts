@@ -25,7 +25,7 @@ export class AuthServiceService {
           localStorage.setItem('user', JSON.stringify(user.data));
           this.currentUserSource.next(user.data);
         }
-        return user.data;
+        return user;
       })
     );
   }
@@ -40,6 +40,10 @@ export class AuthServiceService {
         return user.data;
       })
     );
+  }
+
+  checkIfEmailUsed(email: string) {
+    return this.http.get(this.baseurl + 'Authentication/IsEmailUsed/' + email);
   }
 
   loadCurrentUser() {

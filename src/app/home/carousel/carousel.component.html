@@ -1,0 +1,35 @@
+<ngb-carousel *ngIf="images">
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper darken">
+      <img [src]="images[0]" alt="Random first slide" />
+      <div class="cover"></div>
+    </div>
+    <div class="carousel-caption">
+      <h1>Global Services</h1>
+      <h3>We deliver products from any place in the World to your house</h3>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="images[1]" alt="Random second slide" />
+      <div class="cover"></div>
+    </div>
+    <div class="carousel-caption">
+      <h1>Online Payment</h1>
+      <h3>
+        With our online payment service you can buy what ever you want from any
+        were.
+      </h3>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="images[2]" alt="Random third slide" />
+      <div class="cover"></div>
+    </div>
+    <div class="carousel-caption">
+      <h1>Reliability</h1>
+      <h3>We Provide reliable service with refund policy.</h3>
+    </div>
+  </ng-template>
+</ngb-carousel>

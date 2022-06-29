@@ -1,5 +1,6 @@
 import {
   Component,
+  DoCheck,
   ElementRef,
   Input,
   OnInit,

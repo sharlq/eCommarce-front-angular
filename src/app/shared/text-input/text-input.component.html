@@ -24,12 +24,24 @@
       !controlDir.control?.valid &&
       controlDir.control?.touched
     "
+  ></div>
+  <div
+    *ngIf="controlDir.control?.status === 'PENDING'"
+    class="fa fa-spinner fa-spin loader"
+  ></div>
+  <span
+    *ngIf="controlDir?.control?.errors?.required && controlDir.control?.touched"
+    class="text-danger"
   >
-    <span *ngIf="controlDir?.control?.errors?.required">
-      {{ label }} is required
-    </span>
-    <span *ngIf="controlDir?.control?.errors?.pattern">
-      {{ label }} is not a valid
-    </span>
-  </div>
+    {{ label }} is required
+  </span>
+  <span
+    *ngIf="controlDir?.control?.errors?.pattern && controlDir.control?.touched"
+    class="text-danger"
+  >
+    {{ label }} is not a valid
+  </span>
+  <span *ngIf="controlDir?.control?.errors?.emailUsed" class="text-danger">
+    the email is used
+  </span>
 </div>

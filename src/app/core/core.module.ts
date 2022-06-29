@@ -4,10 +4,11 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [NavBarComponent],
+  declarations: [NavBarComponent, FooterComponent],
   imports: [CommonModule, RouterModule, SharedModule],
-  exports: [NavBarComponent],
+  exports: [NavBarComponent, FooterComponent],
 })
 export class CoreModule {}

@@ -4,6 +4,7 @@
 </div> -->
 <div
   class="container"
+  style="margin-top: 70px"
   *ngIf="products.length > 0 && types.length > 0 && brands.length > 0"
 >
   <div class="row">
@@ -61,8 +62,9 @@
           />
         </div>
       </div>
-      <div class="album py-5 bg-light">
-        <div class="container">
+
+      <div class="py-5 bg-light">
+        <div class="products-container">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <app-shop-item
               *ngFor="let product of products"
@@ -71,6 +73,7 @@
           </div>
         </div>
       </div>
+
       <app-pagination
         [pagination]="pagination"
         (pageChange)="onPageChange($event)"

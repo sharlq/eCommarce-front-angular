@@ -1,0 +1,23 @@
+<!-- prettier-ignore -->
+<a
+routerLink="/shop/{{id}}"
+class="bg-light">
+<div
+  class="product"
+  style="background-image: url({{backendUrl+product.pictureUrl}}) ;"
+>
+  <div class="cover">
+    <div class="details">
+    <div class="info">
+      <h6 class="product-name">
+        {{ product.name }}
+      </h6>
+      <p class="product-type">
+        {{ product.productType.name }}
+      </p>
+    </div>
+    <h6 class="price">{{ product.price | currency }}</h6>
+    </div>
+  </div>
+</div>
+</a>

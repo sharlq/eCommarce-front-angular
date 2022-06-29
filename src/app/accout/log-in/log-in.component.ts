@@ -10,7 +10,7 @@ import { AuthServiceService } from '../auth-service.service';
 export class LogInComponent implements OnInit {
   loginForm!: FormGroup;
   constructor(private authService: AuthServiceService) {}
-
+  serverError: string = '';
   ngOnInit(): void {
     this.createLogInForm();
   }
@@ -23,10 +23,13 @@ export class LogInComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm.get('email')?.errors);
-
-    this.authService.login(this.loginForm.value).subscribe((e) => {
-      console.log(e);
-    });
+    if (this.loginForm.valid) {
+      this.authService.login(this.loginForm.value).subscribe((e) => {
+        console.log(e);
+        if (!e.success) {
+          this.serverError = e.message;
+        }
+      });
+    }
   }
 }
